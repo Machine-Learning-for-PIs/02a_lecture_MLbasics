@@ -67,8 +67,8 @@
 \usetheme{metropolis}           % Use metropolis theme
 \setbeamertemplate{caption}[default]
 \title{Machine Learning Basics}
-\date{November 30, 2023}%{\today}
-\institute{Visual Computing Group, Uni Bonn}
+\date{February 17, 2025}%{\today}
+\institute{Visual Computing Group, University of Bonn}
 \author{Elena Trunz}
 
 \titlegraphic{\includegraphics[width=2.00cm]{UNI_Bonn_Logo_Standard_RZ.pdf}}
@@ -85,9 +85,9 @@
     \section{Machine Learning Algorithms}
     \begin{frame}{What is machine learning?}
 			Machine learning is a subfield of artificial intelligence with the goal of developing algorithms capable of learning
-from data automatically. \pause
+from data automatically. %\pause
 
-			What do we mean by learning? \pause
+			What do we mean by learning? %\pause
 
 			"A computer program is said to learn from \emph{experience} $E$ with respect to some
 class of \emph{tasks} $T$ and \emph{performance measure} $P$, if its performance at tasks in $T$, as
@@ -100,7 +100,7 @@ measured by $P$, improves with experience $E$." (Mitchell, 1997\footnote<3->{ Mi
 		\begin{itemize}
 			\item \emph{dataset} 
 			\item aka (training) data
-		\end{itemize} \pause
+		\end{itemize} %\pause
 
 		Dataset contains \emph{examples} (\emph{data points}): collection of \emph{features} that have been quantitatively measured from some object or event
 		\begin{itemize}
@@ -143,53 +143,53 @@ measured by $P$, improves with experience $E$." (Mitchell, 1997\footnote<3->{ Mi
     \end{frame}
 		}
 		
-	%\let\oldfootnoterule\footnoterule
-	\def\footnoterule{\only<1->\oldfootnoterule}
-	\begin{frame}{Example dataset: Iris}
-		Iris dataset\footnote{\url{https://archive.ics.uci.edu/ml/datasets/iris}} \pause
-		\begin{itemize}
-			\item Collection of measurements of different parts of 150 iris plants\pause
-			\item Each individual plant coresponds to one example \pause
-			\item The features within each example are\pause
-			\begin{itemize}
-				\item sepal length
-				\item sepal width
-				\item petal length
-				\item petal width \pause
-			\end{itemize}
-			\item Recording, which species each plant belonged to \pause
-			\item Three different species of iris plants
-		\end{itemize}
-    \end{frame}
+	%%\let\oldfootnoterule\footnoterule
+	%\def\footnoterule{\only<1->\oldfootnoterule}
+	%\begin{frame}{Example dataset: Iris}
+		%Iris dataset\footnote{\url{https://archive.ics.uci.edu/ml/datasets/iris}} %\pause
+		%\begin{itemize}
+			%\item Collection of measurements of different parts of 150 iris plants%\pause
+			%\item Each individual plant coresponds to one example %\pause
+			%\item The features within each example are%\pause
+			%\begin{itemize}
+				%\item sepal length
+				%\item sepal width
+				%\item petal length
+				%\item petal width %\pause
+			%\end{itemize}
+			%\item Recording, which species each plant belonged to %\pause
+			%\item Three different species of iris plants
+		%\end{itemize}
+    %\end{frame}
 		
 		\begin{frame}{Supervised vs. unsupervised learning}
 			\emph{Supervised} learning:
 			\begin{itemize}
 				\item Each data point $\mathbf{x}$ comes with an associated \emph{label} or \emph{target} value $\mathbf{y}$
 				\item The algorithm is learned by trying to match the targets, or predict $\mathbf{y}$ from $\mathbf{x}$
-				\item From a probabilistic sense this corresponds to estimating $P(\mathbf{y} | \mathbf{x})$
+				%\item From a probabilistic sense this corresponds to estimating $P(\mathbf{y} | \mathbf{x})$
 			\end{itemize}
-			\pause
+			%\pause
 
 			\emph{Unsupervised} learning:
 			\begin{itemize}
 				\item Only data points $\mathbf{x}$, no \emph{labels}
 				\item The goal is to uncover the inherent structure within the data
-				\item From a probabilistic sense this corresponds to estimating \emph{data generating distribution} $p_{\text{data}}(\mathbf{x})$
+				%\item From a probabilistic sense this corresponds to estimating \emph{data generating distribution} $p_{\text{data}}(\mathbf{x})$
 			\end{itemize}
 			\note{Beispiele mit Iris dataset: Supervised: Classifikation: bestimme eine der drei klassen, anhand von features. Unsupervised: bestimme data generating distribution for synthesis of new iris examples}
     \end{frame}
 		
 		\begin{frame}{Machine learning tasks}
-Tasks specify how a machine learning system should process \emph{examples}. Common tasks include \pause
+Tasks specify how a machine learning system should process \emph{examples}. Common tasks include %\pause
 
 
 \begin{itemize}
-\item \textbf{classification}: determine category of input \ie $f: \mathbb{R}^m \rightarrow \{1, ..., K\}$ \pause
+\item \textbf{classification}: determine category of input \ie $f: \mathbb{R}^m \rightarrow \{1, ..., K\}$ %\pause
 
-\item \textbf{regression}: predict numerical value(s) for some input, \ie  $f: \mathbb{R}^m \rightarrow \mathbb{R}^p$ \pause
+\item \textbf{regression}: predict numerical value(s) for some input, \ie  $f: \mathbb{R}^m \rightarrow \mathbb{R}^p$ %\pause
 
-\item \textbf{density estimation}: learn probability density (if $\mathbf{x}$ is continuous) or probability mass (if $\mathbf{x}$ is discrete) function $p_{\text{model}}: \mathbb{R}^m \rightarrow \mathbb{R}$ on the space that the examples were drawn from \pause
+\item \textbf{density estimation}: learn probability density (if $\mathbf{x}$ is continuous) or probability mass (if $\mathbf{x}$ is discrete) function $p_{\text{model}}: \mathbb{R}^m \rightarrow \mathbb{R}$ on the space that the examples were drawn from %\pause
 
 \item \textbf{dimensionality reduction}:  find a compact, lower-dimensional representation of high-dimensional data $\mathbf{x} \in \mathbb{R}^D$, which is often easier to analyze than the original data
 \end{itemize}
@@ -198,11 +198,11 @@ Tasks specify how a machine learning system should process \emph{examples}. Comm
 
 		\begin{frame}{More machine learning tasks}
 \begin{itemize}
-\item \textbf{imputation of missing values} or \textbf{hole filling}: predict values of missing entries $x_i$ of $\mathbf{x} \in \mathbb{R}^m$ \pause
+\item \textbf{imputation of missing values} or \textbf{hole filling}: predict values of missing entries $x_i$ of $\mathbf{x} \in \mathbb{R}^m$ %\pause
 
-\item \textbf{structured prediction}: vector output with well-defined relationships between the elements \pause
+\item \textbf{structured prediction}: vector output with well-defined relationships between the elements %\pause
 
-\item \textbf{synthesis}: generation of new examples that are similar to the training data \pause
+\item \textbf{synthesis}: generation of new examples that are similar to the training data %\pause
 
 \item \textbf{denoising}: get \emph{clean} example $\mathbf{x} \in \mathbb{R}^m$ from \emph{corrupted} example $\tilde{\mathbf{x}} \in \mathbb{R}^m$ %, i.e. prediction of $p(\mathbf{x} | \tilde{\mathbf{x}})$ 
 %\item \textbf{hole filling}: inpainting for an example $\mathbf{x} \in \mathbb{R}^m$ with missing entries $x_i$
@@ -218,7 +218,7 @@ Tasks specify how a machine learning system should process \emph{examples}. Comm
 				\item Classification and imputation of missing inputs: 
 				\begin{itemize}
 					\item \emph{Accuracy}: proportion of examples for which the model produces the correct output
-					\item \emph{Error rate}: proportion of examples for which the model produces an incorrect output
+					%\item \emph{Error rate}: proportion of examples for which the model produces an incorrect output
 				\end{itemize}  
 				\item Density estimation: 
 					\begin{itemize}
@@ -234,27 +234,27 @@ In other cases, we know what quantity we would ideally like to measure, but meas
 }
 		
 		\begin{frame}{Generalization}
-		We want to evaluate performance of our system on data that it has \emph{not yet seen}. \pause
+		We want to evaluate performance of our system on data that it has \emph{not yet seen}. %\pause
 		
 		This estimates how well the system will \emph{generalize}, in comparison to performance on already seen data used during the learning process. 
-		\pause
+		%\pause
 		\begin{itemize}
-			\item Unseen data makes up our \emph{test set} or test data \pause
-			\item Already seen data is the \emph{training set} or training data \pause
+			\item Unseen data makes up our \emph{test set} or test data %\pause
+			\item Already seen data is the \emph{training set} or training data %\pause
 		\end{itemize}
 
-	  During training we want to reduce the \emph{training error} -- this is simply an optimization problem.  \pause 
+	  During training we want to reduce the \emph{training error} -- this is simply an optimization problem.  %\pause 
 		
 		What distinguishes learning from optimization is the interest in also reducing the \emph{test error} (\emph{generalization error}).
 		\end{frame}
 		
 				\begin{frame}{Loss function}
-			A \emph{loss function} is a function that measures the difference (or loss) between a predicted label and a true label \pause
+			A \emph{loss function} is a function that measures the difference (or loss) between a predicted label and a true label %\pause
 			
-			It is closely related to performance measure: \pause
+			It is closely related to performance measure: %\pause
 			\begin{itemize}
-				\item Loss function is used \emph{during} the training to \emph{train} the model \pause
-				\item Performance measure is used \emph{after} the training to \emph{evaluate} the model \pause
+				\item Loss function is used \emph{during} the training to \emph{train} the model %\pause
+				\item Performance measure is used \emph{after} the training to \emph{evaluate} the model %\pause
 			\end{itemize}
 			
 			Sometimes both can be represented by the same function (as it is in the case of regression), but for some other tasks (\eg classification) we have different measures (\eg cross-entropy vs. accuracy).
@@ -397,7 +397,7 @@ In other cases, we know what quantity we would ideally like to measure, but meas
 
 { \referencefootnote{\href{https://padeprueba.fandom.com/es/wiki/Forma_animal}{\underline{This image}} is licensed under \href{https://creativecommons.org/licenses/by-sa/}{CC-BY-SA}.}
 \begin{frame}{What is similarity?}
-%The quality or state of being similar; likeness; resemblance; as a similarity of features. \pause
+%The quality or state of being similar; likeness; resemblance; as a similarity of features. %\pause
 %%\vspace*{-0.04cm}
 %\hfill \footnotesize \emph{Webster's Dictionary}
 \begin{figure}[htbp]
@@ -578,7 +578,7 @@ One common similarity measure is the L1 distance:
 
 
 \begin{frame}{$k$-Nearest Neighbors classifier}
-Instead of copying label from nearest neighbor, take \emph{majority vote} from $k$ closest points: \pause
+Instead of copying label from nearest neighbor, take \emph{majority vote} from $k$ closest points: %\pause
 \begin{figure}
 \includegraphics[scale=.33]{figures/k_nn_data.png}
 \includegraphics[scale=.33]{figures/k_nn_boundary_k1.png}
@@ -605,9 +605,9 @@ Instead of copying label from nearest neighbor, take \emph{majority vote} from $
 \begin{frame}{Choosing $k$ and distance metric}
 What is the best distance?
 
-What is the best value of $k$? \pause
+What is the best value of $k$? %\pause
 
-Very problem-dependent! \pause
+Very problem-dependent! %\pause
 
 Try them all out and see what works best
 \end{frame}
@@ -619,9 +619,9 @@ Try them all out and see what works best
 			\begin{itemize}
 				\item takes a vector $\mathbf{x} \in \mathbb{R}^m$ as input and
 				\item predicts the value of a scalar $ y \in \mathbb{R}$ as its output.
-			\end{itemize}  \pause
+			\end{itemize}  %\pause
 			
-			Our experience $E$ are the input examples $\mathbf{X} = \{\mathbf{x}_1,\dots,\mathbf{x}_N\}$ and the corresponding target values $\mathbf{y} \in \mathbb{R}^N$. \pause
+			Our experience $E$ are the input examples $\mathbf{X} = \{\mathbf{x}_1,\dots,\mathbf{x}_N\}$ and the corresponding target values $\mathbf{y} \in \mathbb{R}^N$. %\pause
 			
 			Thus, the dataset consists of $N$ example pairs $\{(\mathbf{x}_1,y_1), \dots, (\mathbf{x}_N,y_N)\}$ 
 			
@@ -636,14 +636,14 @@ Try them all out and see what works best
 			\]
 			where $\mathbf{w}$ is a vector of model \emph{parameters}.
 			
-			Parameters are values that control the behavior of the system. \pause
+			Parameters are values that control the behavior of the system. %\pause
 			
 			$\rightarrow$ Our task $T$: predict $y$ from $\mathbf{x}$ by outputting $\hat{y} = \mathbf{w}^{\top}\mathbf{x}$.
 			\note{Parameters are values that control the behavior of the system. In this case, $w_i$ is the coeﬃcient that we multiply by feature $x_i$ before summing up the contributions from all the features. We can think of $w$ as a set of weights that determine how each feature aﬀects the prediction. If a feature $x_i$ receives a positive weight $w_i$, then increasing the value of that feature increases the value of our prediction $\hat{y}$. If a feature receives a negative weight, then increasing the value of that feature decreases the value of our prediction. If a feature’s weight is large in magnitude, then it has a large eﬀect on the prediction. If a feature’s weight is zero, it has no eﬀect on the prediction.}
 		\end{frame}
 		
 		\begin{frame}{Linear regression: performance measure}
-			Suppose we have $M$ example inputs together with the correct target values in the test dataset. \pause
+			Suppose we have $M$ example inputs together with the correct target values in the test dataset. %\pause
 			
 			One way of measuring the performance of the model for a regression task is to compute the \emph{mean squared error} (MSE):
 			\begin{align*}
@@ -654,17 +654,17 @@ Try them all out and see what works best
 		\end{frame}
 		
 				\begin{frame}{Linear regression: ML algorithm}
-				To make a machine learning algorithm, we need to design an algorithm that will improve the parameters $\mathbf{w}$ in a way that reduces $MSE_{test}$ when the algorithm is allowed to gain experience by observing the training set $(\mathbf{X}^{(train)}, \mathbf{y}^{(train)})$. \pause
+				To make a machine learning algorithm, we need to design an algorithm that will improve the parameters $\mathbf{w}$ in a way that reduces $MSE_{test}$ when the algorithm is allowed to gain experience by observing the training set $(\mathbf{X}^{(train)}, \mathbf{y}^{(train)})$. %\pause
 				
-				One way to do it is to minimize $MSE_{train}$. We can simply solve for where the gradient of $MSE_{train}$ is $\mathbf{0}$: \pause
+				One way to do it is to minimize $MSE_{train}$. We can simply solve for where the gradient of $MSE_{train}$ is $\mathbf{0}$: %\pause
 				\[
-				\nabla_{\mathbf{w}}MSE_{train} = \mathbf{0} \pause
+				\nabla_{\mathbf{w}}MSE_{train} = \mathbf{0} %\pause
 				\]
 				\[
-				\nabla_{\mathbf{w}}\frac{1}{M}\|\hat{\mathbf{y}}^{(train)} - \mathbf{y}^{(train)}\|_{2}^{2}  = \mathbf{0} \pause
+				\nabla_{\mathbf{w}}\frac{1}{M}\|\hat{\mathbf{y}}^{(train)} - \mathbf{y}^{(train)}\|_{2}^{2}  = \mathbf{0} %\pause
 				\]
 				\[
-				\frac{1}{M}\nabla_{\mathbf{w}}\|\mathbf{X}^{(train)}\mathbf{w} - \mathbf{y}^{(train)}\|_{2}^{2}  = \mathbf{0} \pause
+				\frac{1}{M}\nabla_{\mathbf{w}}\|\mathbf{X}^{(train)}\mathbf{w} - \mathbf{y}^{(train)}\|_{2}^{2}  = \mathbf{0} %\pause
 				\]
 				\[
 				\Rightarrow \mathbf{w}= (\mathbf{X}^{(train)\top}\mathbf{X}^{(train)})^{-1}\mathbf{X}^{(train)\top}\mathbf{y}^{(train)}
@@ -699,31 +699,31 @@ Try them all out and see what works best
 	\section{Generalization}
 	\begin{frame}{Underfitting and overfitting}
 
-How well a machine learning algorithm will perform, depends on its ability to \pause
+How well a machine learning algorithm will perform, depends on its ability to %\pause
 \begin{enumerate}
-\item Make the training error small \pause
-\item Make the gap between training and test error small \pause
+\item Make the training error small %\pause
+\item Make the gap between training and test error small %\pause
 \end{enumerate}
 
-Algorithms which \emph{underfit}, cannot satisfy the first criteria. \pause
+Algorithms which \emph{underfit}, cannot satisfy the first criteria. %\pause
 
 Algorithms which \emph{overfit}, can satisfy the first criteria but not the second.
 \end{frame}
 
 \begin{frame}{Model Capacity}
-Underfitting and overfitting can be controlled by adjusting the \emph{model capacity} in the learning algorithm.  \pause
+Underfitting and overfitting can be controlled by adjusting the \emph{model capacity} in the learning algorithm.  %\pause
 
-A model's capacity is its ability to fit a wide variety of functions. \pause
+A model's capacity is its ability to fit a wide variety of functions. %\pause
 
-Models with (too) low capacity are not rich or expressive enough to capture the training data and hence underfit.  \pause
+Models with (too) low capacity are not rich or expressive enough to capture the training data and hence underfit.  %\pause
 
 Models with (too) high capacity simply memorize the training data and will therefore overfit. 
 \end{frame}
 { \referencefootnote{Image was taken from \cite{Goodfellow_et_al_2016}}
 \begin{frame}{Model Capacity (2)}
 \begin{itemize}
-	\item Capacity can be controlled by the choice of the \emph{hypothesis space}. This space determines the set of functions that the learning algorithm can select as being the solution.  \pause
-	\item The linear regression algorithm has the set of all linear functions of its input as its hypothesis space. \pause
+	\item Capacity can be controlled by the choice of the \emph{hypothesis space}. This space determines the set of functions that the learning algorithm can select as being the solution.  %\pause
+	\item The linear regression algorithm has the set of all linear functions of its input as its hypothesis space. %\pause
 	\item We can increase the model's capacity by generalizing linear regression to include polynomials in its hypothesis space. 
 \end{itemize}
  \begin{figure}
@@ -752,10 +752,10 @@ regime, where capacity is too large, above the optimal capacity.}
 \end{frame}
 }
 \begin{frame}{Regularization}
-	Another way to control underfitting and overfitting is to drastically increase the capacity and use a \emph{regularizer} so as to not overfit. \pause
+	Another way to control underfitting and overfitting is to drastically increase the capacity and use a \emph{regularizer} so as to not overfit. %\pause
 	
 	Regularization is any modiﬁcation we make to a learning algorithm that is intended to reduce its generalization error but not its
-training error. \pause
+training error. %\pause
 	
 	We can regularize a model by giving a learning algorithm a preference for one solution over another in its hypothesis space.
 \end{frame}
@@ -778,13 +778,13 @@ training error. \pause
 }
 
 \begin{frame}{Hyperparameters}
-	The parameters $\mathbf{w}$ of the regression example are determined (optimized) during the training. Such parameters are also called \emph{weights}. \pause
+	The parameters $\mathbf{w}$ of the regression example are determined (optimized) during the training. Such parameters are also called \emph{weights}. %\pause
 	
-	Most learning algorithms have some free parameters that are not determined by the learning algorithm, but are set in advance to control the algorithm's behavior. \pause
+	Most learning algorithms have some free parameters that are not determined by the learning algorithm, but are set in advance to control the algorithm's behavior. %\pause
 
 	Such free parameters are called \emph{hyperparameters}.
 
-\pause
+%\pause
 	In the previous regression example the polynomial degree and $\lambda$ are two hyperparameters.
 
 %\emph{Q: Can we learn the capacity hyperparameter on the training set?  Why or why not?}
@@ -794,15 +794,15 @@ training error. \pause
 
 		
 		\begin{frame}{Hyperparameter estimation}
-			We cannot use our test set to make any choices about the model, including its hyperparameters. \pause
+			We cannot use our test set to make any choices about the model, including its hyperparameters. %\pause
 			
-			To determine the hyperparameters, we need a \emph{validation set} of examples that the training algorithm does not observe. \pause
+			To determine the hyperparameters, we need a \emph{validation set} of examples that the training algorithm does not observe. %\pause
 			
 			We always construct the validation set from the training data:
 			\begin{itemize}
-				\item Split the training data into two disjoint subsets \pause
-				\item One of the subsets is used to learn the parameters \pause
-				\item The other subset is used to estimate the generalization error during or after training and to guide the selection of the hyperparameters \pause
+				\item Split the training data into two disjoint subsets %\pause
+				\item One of the subsets is used to learn the parameters %\pause
+				\item The other subset is used to estimate the generalization error during or after training and to guide the selection of the hyperparameters %\pause
 			\end{itemize}
 			
 			After the training and all hyperparameter optimization is complete, we can estimate the generalizaiton error on the test set.
@@ -843,8 +843,8 @@ training error. \pause
 		\item Average performance values
 	\end{itemize}
     \end{frame}
-		\begin{frame}{What do we mean by learning? - revised} \pause
-		Learning: Based on training data, finding a model with parameters $\boldsymbol{w}$ that generalizes well.  \pause
+		\begin{frame}{What do we mean by learning? - revised} %\pause
+		Learning: Based on training data, finding a model with parameters $\boldsymbol{w}$ that generalizes well.  %\pause
 		
 		In machine learning models are often called \emph{estimators} or \emph{hypotheses}.
 		%\begin{itemize}
@@ -852,7 +852,7 @@ training error. \pause
 			%\begin{itemize}
 				%\item Predictor as a function
 				%\item Loss function
-				%\item Regularization \pause
+				%\item Regularization %\pause
 			%\end{itemize}
 			%\item Probabilistic view:
 			%\begin{itemize}
@@ -864,42 +864,42 @@ training error. \pause
 	%\end{itemize}
     \end{frame}
 		
-		\section{Properties of Estimators}
-		\begin{frame}{Properties of estimators}
-		%
-		\begin{itemize}
-				\item Good estimator: Function whose output is close to the true underlying function that generated the training data. \pause
-				\item How can we tell, if an estimator is any good?
-				\item[$\rightarrow$] We can analyze two most common properties of estimators:
-				\begin{itemize}
-					\item Bias
-					\item Variance
-				\end{itemize}
-			\end{itemize}
-    \end{frame}
-			\begin{frame}{Bias}
-		\begin{itemize}
-				\item What is the inherent error that persists in your estimator, even when trained with an unlimited amount of data?
-				\item The error that arises because the estimator leans towards a particular type of solution (e.g. linear regression)
-				\item Bias is an inherent characteristic of the model
-			\end{itemize}
-    \end{frame}
-		\begin{frame}{Variance}
-		\begin{itemize}
-				\item Measures, how much we expect the estimator to vary as a function of the data sample, i.e. if we were to independently re-sample the dataset from the underlying data generating process
-				\item To what extent does the estimator exhibit excessive specialization to a specific training set (overfitting)?
-			\end{itemize}
-    \end{frame}
-		{ \referencefootnote{Image was taken from \cite{Goodfellow_et_al_2016}}
-		\begin{frame}{Bias-Variance tradeoff}
-			\begin{figure}
-					\center
-					\includegraphics[scale=.45]{figures/biasvariance.png}
-					\caption{The relationship between bias and variance is tightly linked to the concepts of underfitting, overfitting and model capacity.}
-        \end{figure}
-    \end{frame}
-		\note{Imagine we take five different data sets of the same problem. We train the same model 5 times. High bias, low variance means that all 5 estimators have consistently bad predictions. High variance, low bias means that the predictions are good on average, but vary a lot. (Dartscheibe zeichnen.)}
-		}
+		%\section{Properties of Estimators}
+		%\begin{frame}{Properties of estimators}
+		%%
+		%\begin{itemize}
+				%\item Good estimator: Function whose output is close to the true underlying function that generated the training data. %\pause
+				%\item How can we tell, if an estimator is any good?
+				%\item[$\rightarrow$] We can analyze two most common properties of estimators:
+				%\begin{itemize}
+					%\item Bias
+					%\item Variance
+				%\end{itemize}
+			%\end{itemize}
+    %\end{frame}
+			%\begin{frame}{Bias}
+		%\begin{itemize}
+				%\item What is the inherent error that persists in your estimator, even when trained with an unlimited amount of data?
+				%\item The error that arises because the estimator leans towards a particular type of solution (e.g. linear regression)
+				%\item Bias is an inherent characteristic of the model
+			%\end{itemize}
+    %\end{frame}
+		%\begin{frame}{Variance}
+		%\begin{itemize}
+				%\item Measures, how much we expect the estimator to vary as a function of the data sample, i.e. if we were to independently re-sample the dataset from the underlying data generating process
+				%\item To what extent does the estimator exhibit excessive specialization to a specific training set (overfitting)?
+			%\end{itemize}
+    %\end{frame}
+		%{ \referencefootnote{Image was taken from \cite{Goodfellow_et_al_2016}}
+		%\begin{frame}{Bias-Variance tradeoff}
+			%\begin{figure}
+					%\center
+					%\includegraphics[scale=.45]{figures/biasvariance.png}
+					%\caption{The relationship between bias and variance is tightly linked to the concepts of underfitting, overfitting and model capacity.}
+        %\end{figure}
+    %\end{frame}
+		%\note{Imagine we take five different data sets of the same problem. We train the same model 5 times. High bias, low variance means that all 5 estimators have consistently bad predictions. High variance, low bias means that the predictions are good on average, but vary a lot. (Dartscheibe zeichnen.)}
+		%}
 \begin{frame}{Refs}
 \printbibliography
 \end{frame}
